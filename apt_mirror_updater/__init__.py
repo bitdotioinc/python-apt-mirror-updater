@@ -941,6 +941,8 @@ def find_current_mirror(sources_list):
                 tokens[1].startswith(('http://', 'https://', 'ftp://')) and
                 'main' in tokens[3:]):
             return tokens[1]
+        else:
+            logger.info("Ignoring line: \"%s\".", line)
     raise EnvironmentError("Failed to determine current mirror in apt's package resource list!")
 
 
